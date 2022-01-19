@@ -12,7 +12,7 @@ from .views import (
     RequestRefundView
 )
 
-app_name = 'core'
+app_name = 'blog'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
