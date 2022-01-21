@@ -69,7 +69,7 @@ class CheckoutView(View):
             return render(self.request, "checkout.html", context)
         except ObjectDoesNotExist:
             messages.info(self.request, "You do not have an active order")
-            return redirect("core:checkout")
+            return redirect("blog:checkout")
 
     def post(self, *args, **kwargs):
         form = CheckoutForm(self.request.POST or None)
@@ -93,7 +93,7 @@ class CheckoutView(View):
                     else:
                         messages.info(
                             self.request, "No default shipping address available")
-                        return redirect('core:checkout')
+                        return redirect('blog:checkout')
                 else:
                     print("User is entering a new shipping address")
                     shipping_address1 = form.cleaned_data.get(
@@ -156,7 +156,7 @@ class CheckoutView(View):
                     else:
                         messages.info(
                             self.request, "No default billing address available")
-                        return redirect('core:checkout')
+                        return redirect('blog:checkout')
                 else:
                     print("User is entering a new billing address")
                     billing_address1 = form.cleaned_data.get(
@@ -194,16 +194,16 @@ class CheckoutView(View):
                 payment_option = form.cleaned_data.get('payment_option')
 
                 if payment_option == 'S':
-                    return redirect('core:payment', payment_option='stripe')
+                    return redirect('blog:payment', payment_option='stripe')
                 elif payment_option == 'P':
-                    return redirect('core:payment', payment_option='paypal')
+                    return redirect('blog:payment', payment_option='paypal')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")
-                    return redirect('core:checkout')
+                    return redirect('blog:checkout')
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
-            return redirect("core:order-summary")
+            return redirect("blog:order-summary")
 
 
 class PaymentView(View):
@@ -233,7 +233,7 @@ class PaymentView(View):
         else:
             messages.warning(
                 self.request, "You have not added a billing address")
-            return redirect("core:checkout")
+            return redirect("blog:checkout")
 
     def post(self, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)
@@ -385,18 +385,18 @@ def add_to_cart(request, slug):
             order_item.quantity += 1
             order_item.save()
             messages.info(request, "This item quantity was updated.")
-            return redirect("core:order-summary")
+            return redirect("blog:order-summary")
         else:
             order.items.add(order_item)
             messages.info(request, "This item was added to your cart.")
-            return redirect("core:order-summary")
+            return redirect("blog:order-summary")
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(
             user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
         messages.info(request, "This item was added to your cart.")
-        return redirect("core:order-summary")
+        return redirect("blog:order-summary")
 
 
 @login_required
@@ -418,13 +418,13 @@ def remove_from_cart(request, slug):
             order.items.remove(order_item)
             order_item.delete()
             messages.info(request, "This item was removed from your cart.")
-            return redirect("core:order-summary")
+            return redirect("blog:order-summary")
         else:
             messages.info(request, "This item was not in your cart")
-            return redirect("core:product", slug=slug)
+            return redirect("blog:product", slug=slug)
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("core:product", slug=slug)
+        return redirect("blog:product", slug=slug)
 
 
 @login_required
@@ -449,13 +449,13 @@ def remove_single_item_from_cart(request, slug):
             else:
                 order.items.remove(order_item)
             messages.info(request, "This item quantity was updated.")
-            return redirect("core:order-summary")
+            return redirect("blog:order-summary")
         else:
             messages.info(request, "This item was not in your cart")
-            return redirect("core:product", slug=slug)
+            return redirect("blog:product", slug=slug)
     else:
         messages.info(request, "You do not have an active order")
-        return redirect("core:product", slug=slug)
+        return redirect("blog:product", slug=slug)
 
 
 def get_coupon(request, code):
@@ -464,7 +464,7 @@ def get_coupon(request, code):
         return coupon
     except ObjectDoesNotExist:
         messages.info(request, "This coupon does not exist")
-        return redirect("core:checkout")
+        return redirect("blog:checkout")
 
 
 class AddCouponView(View):
@@ -478,10 +478,10 @@ class AddCouponView(View):
                 order.coupon = get_coupon(self.request, code)
                 order.save()
                 messages.success(self.request, "Successfully added coupon")
-                return redirect("core:checkout")
+                return redirect("blog:checkout")
             except ObjectDoesNotExist:
                 messages.info(self.request, "You do not have an active order")
-                return redirect("core:checkout")
+                return redirect("blog:checkout")
 
 
 class RequestRefundView(View):
@@ -512,8 +512,8 @@ class RequestRefundView(View):
                 refund.save()
 
                 messages.info(self.request, "Your request was received.")
-                return redirect("core:request-refund")
+                return redirect("blog:request-refund")
 
             except ObjectDoesNotExist:
                 messages.info(self.request, "This order does not exist.")
-                return redirect("core:request-refund")
+                return redirect("blog:request-refund")
