@@ -9,12 +9,14 @@ from .views import (
     remove_single_item_from_cart,
     PaymentView,
     AddCouponView,
-    RequestRefundView
+    RequestRefundView,
+    SignUpView
 )
 
 app_name = 'blog'
 
 urlpatterns = [
+    path('signup/', SignUpView.as_view(), name='signup'),
     path('', HomeView.as_view(), name='home'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),

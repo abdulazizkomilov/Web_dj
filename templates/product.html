@@ -1,97 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="../static_in_env/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="../static_in_env/css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="../static_in_env/css/style.min.css" rel="stylesheet">
-</head>
+{% block content %}
 
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container">
-
-      <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-        <strong class="blue-text">MDB</strong>
-      </a>
-
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <!-- Left -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link waves-effect" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About MDB</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-              target="_blank">Free download</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free
-              tutorials</a>
-          </li>
-        </ul>
-
-        <!-- Right -->
-        <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item">
-            <a class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              <i class="fab fa-github mr-2"></i>MDB GitHub
-            </a>
-          </li>
-        </ul>
-
-      </div>
-
-    </div>
-  </nav>
-  <!-- Navbar -->
-
-  <!--Main layout-->
-  <main class="mt-5 pt-4">
-    <div class="container dark-grey-text mt-5">
+  <main class="pt-4">
+    <div class="container dark-grey-text">
 
       <!--Grid row-->
       <div class="row wow fadeIn">
@@ -99,7 +11,10 @@
         <!--Grid column-->
         <div class="col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+            <div id="img-container">
+                <div id="lens"></div>
+                <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+            </div>
 
         </div>
         <!--Grid column-->
@@ -110,46 +25,80 @@
           <!--Content-->
           <div class="p-4">
 
+            <div>
+              <h1><strong>{{ object.title }}</strong></h1>
+            </div>
+
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">Category 2</span>
-              </a>
-              <a href="">
-                <span class="badge blue mr-1">New</span>
-              </a>
-              <a href="">
-                <span class="badge red mr-1">Bestseller</span>
+                  <span class="badge purple mr-1">{{ object.get_category_display }}</span>
               </a>
             </div>
 
             <p class="lead">
+              {% if object.discount_price %}
               <span class="mr-1">
-                <del>$200</del>
+                <del>${{ object.price }}</del>
               </span>
-              <span>$100</span>
+              <span>${{ object.discount_price }}</span>
+              {% else %}
+              <span>${{ object.price }}</span>
+              {% endif %}
             </p>
 
             <p class="lead font-weight-bold">Description</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
-              sint voluptatibus!
-              Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+            <p>{{ object.description }}</p>
 
-            <form class="d-flex justify-content-left">
-              <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
+            <section class="color">
+                <div class="mt-3 mb-3">
+                    <p>Choose your color</p>
+                    <div class="ml-2">
+                        <div class="col-md-4 col-12">
+                            <div>
+                              <input id="radio100" name="radio" value="Red" type="radio" class="custom-control-input" required>
+                              <label class="custom-control-label" for="radio100">Red</label>
+                            </div>
+                            <div>
+                              <input id="radio101" name="radio" value="Blue" type="radio" class="custom-control-input" required>
+                              <label class="custom-control-label" for="radio101">Blue</label>
+                            </div>
+                            <div>
+                              <input id="radio102" name="radio" value="Yellow" type="radio" class="custom-control-input" required>
+                              <label class="custom-control-label" for="radio102">Yellow</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            </form>
+            <section>
+                <div class="mt-4 mb-5">
+                    <p>Choose your size</p>
+                        <select name="cup">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XXL">XXL</option>
+                            <option value="XXXL">XXXL</option>
+                        </select>
+                </div>
+            </section>
+
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+            <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">
+              Remove from cart
+            </a>
 
           </div>
           <!--Content-->
 
         </div>
         <!--Grid column-->
-
       </div>
       <!--Grid row-->
 
@@ -179,7 +128,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-12 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+          <img src="/media/14.png" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -187,7 +136,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+          <img src="/media/1.png" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -195,7 +144,7 @@
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4">
 
-          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+          <img src="/media/2.png" class="img-fluid" alt="">
 
         </div>
         <!--Grid column-->
@@ -204,88 +153,75 @@
       <!--Grid row-->
 
     </div>
-  </main>
-  <!--Main layout-->
+  <script>
+      function imageZoom(imgID){
+          let img = document.getElementById(imgID)
+          let lens = document.getElementById('lens')
 
-  <!--Footer-->
-  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+          lens.style.backgroundImage = `url( ${img.src} )`
 
-    <!--Call to action-->
-    <div class="pt-4">
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
-        role="button">Download MDB
-        <i class="fas fa-download ml-2"></i>
-      </a>
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start
-        free tutorial
-        <i class="fas fa-graduation-cap ml-2"></i>
-      </a>
-    </div>
-    <!--/.Call to action-->
+          let ratio = 1
 
-    <hr class="my-4">
+          lens.style.backgroundSize = (img.width * ratio) + 'px' + (img.height * ratio) + 'px';
 
-    <!-- Social icons -->
-    <div class="pb-4">
-      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-        <i class="fab fa-facebook-f mr-3"></i>
-      </a>
+          img.addEventListener("mousemove", moveLens)
+          lens.addEventListener("mousemove", moveLens)
+          img.addEventListener("touchmove", moveLens)
 
-      <a href="https://twitter.com/MDBootstrap" target="_blank">
-        <i class="fab fa-twitter mr-3"></i>
-      </a>
+          function moveLens(){
 
-      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-        <i class="fab fa-youtube mr-3"></i>
-      </a>
+              //1
+              let pos = getCursor()
+              console.log('pos:', pos)
 
-      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-        <i class="fab fa-google-plus-g mr-3"></i>
-      </a>
+              //2
+              let positionLeft = pos.x - (lens.offsetWidth / 2)
+              let positionTop = pos.y - (lens.offsetHeight / 2)
 
-      <a href="https://dribbble.com/mdbootstrap" target="_blank">
-        <i class="fab fa-dribbble mr-3"></i>
-      </a>
+              //5
+              if(positionLeft < 0 ){
+                  positionLeft = 0
+              }
 
-      <a href="https://pinterest.com/mdbootstrap" target="_blank">
-        <i class="fab fa-pinterest mr-3"></i>
-      </a>
+              if(positionTop < 0 ){
+                  positionTop = 0
+              }
 
-      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-        <i class="fab fa-github mr-3"></i>
-      </a>
+              if(positionLeft > img.width - lens.offsetWidth / 3){
+                  positionLeft = img.width - lens.offsetWidth / 3
+              }
 
-      <a href="http://codepen.io/mdbootstrap/" target="_blank">
-        <i class="fab fa-codepen mr-3"></i>
-      </a>
-    </div>
-    <!-- Social icons -->
+              if(positionTop > img.height - lens.offsetHeight / 3){
+                  positionTop = img.height - lens.offsetHeight / 3
+              }
 
-    <!--Copyright-->
-    <div class="footer-copyright py-3">
-      © 2019 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
-    </div>
-    <!--/.Copyright-->
+              //3
+              lens.style.left = positionLeft +'px';
+              lens.style.top = positionTop +'px';
 
-  </footer>
-  <!--/.Footer-->
+              //4
+              lens.style.backgroundPosition = "-" + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px'
+          }
 
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="../static_in_env/js/jquery-3.4.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../static_in_env/js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../static_in_env/js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="../static_in_env/js/mdb.min.js"></script>
-  <!-- Initializations -->
-  <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
+          function getCursor(){
 
+              let e = window.event
+              let bounds = img.getBoundingClientRect()
+
+              //console.log('e:', e)
+              //console.log('bounds:', bounds)
+
+              let x = e.pageX - bounds.left
+              let y = e.pageX - bounds.top
+              x = x - window.pageXOffset;
+              y = y - window.pageYOffset;
+
+              return {'x':x, 'y':y}
+          }
+      }
+
+      imageZoom('featured')
   </script>
-</body>
+  </main>
 
-</html>
+{% endblock content %}

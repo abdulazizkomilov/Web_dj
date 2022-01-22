@@ -110,7 +110,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -124,12 +125,33 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # auth
-AUTHENTICATION_BACKENDS = [
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-]
+
+)
 
 SITE_ID = 1
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+LOGIN_REDIRECT_URL = '/'
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory" # Verifying the email address will be compulsory
+ACCOUNT_USERNAME_BLACKLIST = ['administrator', 'help',
+                              'helpdesk', 'operator',
+                              'root', 'superadmin',
+                              'superuser', 'info@',
+                              'admin', 'webmaster',
+                              'areariservata', 'blog'
+                              '@', 'master']
+                              # Ban a list of names as a choice
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
