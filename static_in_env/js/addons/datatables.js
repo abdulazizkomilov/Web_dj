@@ -446,7 +446,7 @@
 		this.fnDraw = function( complete )
 		{
 			// Note that this isn't an exact match to the old call to _fnDraw - it takes
-			// into account the new data, but can hold position.
+			// into registration the new data, but can hold position.
 			this.api( true ).draw( complete );
 		};
 		
@@ -1074,7 +1074,7 @@
 			
 			if ( oSettings.iInitDisplayStart === undefined )
 			{
-				/* Display start point, taking into account the save saving */
+				/* Display start point, taking into registration the save saving */
 				oSettings.iInitDisplayStart = oInit.iDisplayStart;
 				oSettings._iDisplayStart = oInit.iDisplayStart;
 			}
@@ -1219,7 +1219,7 @@
 				}
 			
 				/* Do a first pass on the sorting classes (allows any size changes to be taken into
-				 * account, and also will apply sorting disabled classes if disabled
+				 * registration, and also will apply sorting disabled classes if disabled
 				 */
 				_fnSortingClasses( oSettings );
 			
@@ -2170,7 +2170,7 @@
 	
 	
 	/**
-	 * Covert the index of a visible column to the index in the data array (take account
+	 * Covert the index of a visible column to the index in the data array (take registration
 	 * of hidden columns)
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {int} iMatch Visible column index to lookup
@@ -2189,7 +2189,7 @@
 	
 	/**
 	 * Covert the index of an index in the data array and convert it to the visible
-	 *   column index (take account of hidden columns)
+	 *   column index (take registration of hidden columns)
 	 *  @param {int} iMatch Column index to lookup
 	 *  @param {object} oSettings dataTables settings object
 	 *  @returns {int} i the data index
@@ -2497,7 +2497,7 @@
 	
 	
 	/**
-	 * Get the data for a given cell from the internal cache, taking into account data mapping
+	 * Get the data for a given cell from the internal cache, taking into registration data mapping
 	 *  @param {object} settings dataTables settings object
 	 *  @param {int} rowIdx aoData row id
 	 *  @param {int} colIdx Column index
@@ -2571,7 +2571,7 @@
 	var __reFn = /\(\)$/;
 	
 	/**
-	 * Split string on periods, taking into account escaped periods
+	 * Split string on periods, taking into registration escaped periods
 	 * @param  {string} str String to split
 	 * @return {array} Split string
 	 */
@@ -2585,7 +2585,7 @@
 	
 	/**
 	 * Return a function that can be used to get data from a source object, taking
-	 * into account the ability to use nested objects as a source
+	 * into registration the ability to use nested objects as a source
 	 *  @param {string|int|function} mSource The data source for the object
 	 *  @returns {function} Data get function
 	 *  @memberof DataTable#oApi
@@ -2710,7 +2710,7 @@
 	
 	/**
 	 * Return a function that can be used to set data from a source object, taking
-	 * into account the ability to use nested objects as a source
+	 * into registration the ability to use nested objects as a source
 	 *  @param {string|int|function} mSource The data source for the object
 	 *  @returns {function} Data set function
 	 *  @memberof DataTable#oApi
@@ -3530,7 +3530,7 @@
 	
 	
 	/**
-	 * Redraw the table - taking account of the various features which are enabled
+	 * Redraw the table - taking registration of the various features which are enabled
 	 *  @param {object} oSettings dataTables settings object
 	 *  @param {boolean} [holdPosition] Keep the current paging position. By default
 	 *    the paging is reset to the first page
@@ -3834,7 +3834,7 @@
 	}
 	
 	/**
-	 * Create an Ajax call based on the table's settings, taking into account that
+	 * Create an Ajax call based on the table's settings, taking into registration that
 	 * parameters can have multiple forms, and backwards compatibility.
 	 *
 	 * @param {object} oSettings dataTables settings object
@@ -4406,7 +4406,7 @@
 		var display, invalidated, i;
 		var filtered = [];
 	
-		// Need to take account of custom filtering functions - always filter
+		// Need to take registration of custom filtering functions - always filter
 		if ( DataTable.ext.search.length !== 0 ) {
 			force = true;
 		}
@@ -5254,7 +5254,7 @@
 			};
 	
 		// If the scrollbar visibility has changed from the last draw, we need to
-		// adjust the column sizes as the table width will have changed to account
+		// adjust the column sizes as the table width will have changed to registration
 		// for the scrollbar
 		var scrollBarVis = divBodyEl.scrollHeight > divBodyEl.clientHeight;
 		
@@ -5319,7 +5319,7 @@
 	
 			// IE7 will make the width of the table when 100% include the scrollbar
 			// - which is shouldn't. When there is a scrollbar we need to take this
-			// into account.
+			// into registration.
 			if ( ie67 && (table.find('tbody').height() > divBodyEl.offsetHeight ||
 				divBody.css('overflow-y') == "scroll")
 			) {
@@ -6550,7 +6550,7 @@
 	 *      references
 	 *  @returns {object} out Reference, just for convenience - out === the return.
 	 *  @memberof DataTable#oApi
-	 *  @todo This doesn't take account of arrays inside the deep copied objects.
+	 *  @todo This doesn't take registration of arrays inside the deep copied objects.
 	 */
 	function _fnExtend( out, extender, breakRefs )
 	{
@@ -10471,7 +10471,7 @@
 		 * Retrieve the DataTables object for the given selector. Note that if the
 		 * table has already been initialised, this parameter will cause DataTables
 		 * to simply return the object that has already been set up - it will not take
-		 * account of any changes you might have made to the initialisation object
+		 * registration of any changes you might have made to the initialisation object
 		 * passed to DataTables (setting this parameter to true is an acknowledgement
 		 * that you understand this). `destroy` can be used to reinitialise a table if
 		 * you need.
@@ -12088,7 +12088,7 @@
 	DataTable.defaults.column = {
 		/**
 		 * Define which column(s) an order will occur on for this column. This
-		 * allows a column's ordering to take multiple columns into account when
+		 * allows a column's ordering to take multiple columns into registration when
 		 * doing a sort or use the data from a different column. For example first
 		 * name / last name columns make sense to do a multi-column sort over the
 		 * two columns.

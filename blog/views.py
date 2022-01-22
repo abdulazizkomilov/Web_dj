@@ -41,7 +41,7 @@ def is_valid_form(values):
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'account/signup.html'
+    template_name = 'registration/signup.html'
 
 
 class CheckoutView(View):
@@ -354,7 +354,7 @@ class PaymentView(View):
 
 class HomeView(ListView):
     model = Item
-    paginate_by = 10
+    paginate_by = 8
     template_name = "home.html"
 
 

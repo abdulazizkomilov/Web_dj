@@ -137,21 +137,24 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 LOGIN_REDIRECT_URL = '/'
-SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory" # Verifying the email address will be compulsory
-ACCOUNT_USERNAME_BLACKLIST = ['administrator', 'help',
-                              'helpdesk', 'operator',
-                              'root', 'superadmin',
-                              'superuser', 'info@',
-                              'admin', 'webmaster',
-                              'areariservata', 'blog'
-                              '@', 'master']
-                              # Ban a list of names as a choice
+LOGOUT_REDIRECT_URL = '/'
+
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+# ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# LOGIN_REDIRECT_URL = '/'
+# SOCIALACCOUNT_QUERY_EMAIL = True
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory" # Verifying the email address will be compulsory
+# ACCOUNT_USERNAME_BLACKLIST = ['administrator', 'help',
+#                               'helpdesk', 'operator',
+#                               'root', 'superadmin',
+#                               'superuser', 'info@',
+#                               'admin', 'webmaster',
+#                               'areariservata', 'blog'
+#                               '@', 'master']
+#                               # Ban a list of names as a choice
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -183,3 +186,14 @@ CRISPY_CLASS_CONVERTERS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
+
+## EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'your_custom_email_account'
+EMAIL_HOST = 'smtp'
+EMAIL_HOST_USER = 'username'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

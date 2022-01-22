@@ -6849,7 +6849,7 @@ module.exports = {
 			totalBottomBoxesHeight += box.height;
 		});
 
-		// We may be adding some padding to account for rotated x axis labels
+		// We may be adding some padding to registration for rotated x axis labels
 		var leftPaddingAddition = Math.max(maxHorizontalLeftPadding - totalLeftBoxesWidth, 0);
 		totalLeftBoxesWidth += leftPaddingAddition;
 		totalRightBoxesWidth += Math.max(maxHorizontalRightPadding - totalRightBoxesWidth, 0);
@@ -7795,7 +7795,7 @@ module.exports = Element.extend({
 				}
 			} else {
 				// A vertical axis is more constrained by the width. Labels are the
-				// dominant factor here, so get that length first and account for padding
+				// dominant factor here, so get that length first and registration for padding
 				if (tickOpts.mirror) {
 					largestTextWidth = 0;
 				} else {
@@ -13822,7 +13822,7 @@ module.exports = function(Chart) {
 				return 0; // null always in center
 			}
 
-			// Take into account half font size + the yPadding of the top value
+			// Take into registration half font size + the yPadding of the top value
 			var scalingFactor = me.drawingArea / (me.max - me.min);
 			if (me.options.ticks.reverse) {
 				return (me.max - value) * scalingFactor;
