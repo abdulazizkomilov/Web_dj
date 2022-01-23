@@ -23,17 +23,9 @@
         <div class="col-md-6 mb-4">
 
           <!--Content-->
-          <div class="p-4">
-
-            <div>
-              <h1><strong>{{ object.title }}</strong></h1>
-            </div>
-
-            <div class="mb-3">
-              <a href="">
-                  <span class="badge purple mr-1">{{ object.get_category_display }}</span>
-              </a>
-            </div>
+          <div class="p-0">
+              <span class="badge purple mr-1">{{ object.title }}</span>
+              <span class="badge purple mr-1">{{ object.get_category_display }}</span>
 
             <p class="lead">
               {% if object.discount_price %}
@@ -49,28 +41,138 @@
             <p class="lead font-weight-bold">Description</p>
 
             <p>{{ object.description }}</p>
-
-            <section class="color">
-                <div class="mt-3 mb-3">
-                    <p>Choose your color</p>
-                    <div class="ml-2">
-                        <div class="col-md-4 col-12">
-                            <div>
-                              <input id="radio100" name="radio" value="Red" type="radio" class="custom-control-input" required>
-                              <label class="custom-control-label" for="radio100">Red</label>
-                            </div>
-                            <div>
-                              <input id="radio101" name="radio" value="Blue" type="radio" class="custom-control-input" required>
-                              <label class="custom-control-label" for="radio101">Blue</label>
-                            </div>
-                            <div>
-                              <input id="radio102" name="radio" value="Yellow" type="radio" class="custom-control-input" required>
-                              <label class="custom-control-label" for="radio102">Yellow</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <p>Choose your color</p>
+            <ul class="main-image-thumb-ul" id="card-image"
+            style="margin-right: 0;
+                   margin-top: 0;
+                   margin-bottom: 0;
+                   margin-left: 0;
+                   padding: 0;
+                   padding-top: 0;
+                   padding-right: 0;
+                   padding-bottom: 0;
+                   padding-left: 0;
+                   font: inherit;
+                   vertical-align: baseline;
+                   display: table;
+                   border-collapse: collapse;
+                   list-style: none;
+                   :after, :before{
+                        box-sizing: border-box;
+                   }">
+                <li class="main-image-thumb-item-active" id="img-cd-ac"
+                    style="display: table-cell;
+                            box-sizing: border-box;
+                            border: 0.5px solid #979797;
+                                border-top-color: rgb(151, 151, 151);
+                                border-top-style: solid;
+                                border-top-width: 0.5px;
+                                border-right-color: rgb(151, 151, 151);
+                                border-right-style: solid;
+                                border-right-width: 0.5px;
+                                border-bottom-color: rgb(151, 151, 151);
+                                border-bottom-style: solid;
+                                border-bottom-width: 0.5px;
+                                border-left-color: rgb(151, 151, 151);
+                                border-left-style: solid;
+                                border-left-width: 0.5px;
+                                border-image-source: initial;
+                                border-image-slice: initial;
+                                border-image-width: initial;
+                                border-image-outset: initial;
+                                border-image-repeat: initial;
+                            overflow: hidden;
+                                overflow-x: hidden;
+                                overflow-y: hidden;
+                            cursor: pointer;">
+                        <div id="lens"></div>
+                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+                </li>
+                <li class="main-image-thumb-item-item" id="img-cd"
+                    style="display: table-cell;
+                            box-sizing: border-box;
+                            border: 0.5px solid #979797;
+                                border-top-color: rgb(151, 151, 151);
+                                border-top-style: solid;
+                                border-top-width: 0.5px;
+                                border-right-color: rgb(151, 151, 151);
+                                border-right-style: solid;
+                                border-right-width: 0.5px;
+                                border-bottom-color: rgb(151, 151, 151);
+                                border-bottom-style: solid;
+                                border-bottom-width: 0.5px;
+                                border-left-color: rgb(151, 151, 151);
+                                border-left-style: solid;
+                                border-left-width: 0.5px;
+                                border-image-source: initial;
+                                border-image-slice: initial;
+                                border-image-width: initial;
+                                border-image-outset: initial;
+                                border-image-repeat: initial;
+                            overflow: hidden;
+                                overflow-x: hidden;
+                                overflow-y: hidden;
+                            cursor: pointer;">
+                        <div id="lens"></div>
+                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+                </li>
+                <li class="main-image-thumb-item-item" id="img-cd"
+                    style="display: table-cell;
+                            box-sizing: border-box;
+                            border: 0.5px solid #979797;
+                                border-top-color: rgb(151, 151, 151);
+                                border-top-style: solid;
+                                border-top-width: 0.5px;
+                                border-right-color: rgb(151, 151, 151);
+                                border-right-style: solid;
+                                border-right-width: 0.5px;
+                                border-bottom-color: rgb(151, 151, 151);
+                                border-bottom-style: solid;
+                                border-bottom-width: 0.5px;
+                                border-left-color: rgb(151, 151, 151);
+                                border-left-style: solid;
+                                border-left-width: 0.5px;
+                                border-image-source: initial;
+                                border-image-slice: initial;
+                                border-image-width: initial;
+                                border-image-outset: initial;
+                                border-image-repeat: initial;
+                            overflow: hidden;
+                                overflow-x: hidden;
+                                overflow-y: hidden;
+                            cursor: pointer;">
+                        <div id="lens"></div>
+                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+                </li>
+                <li class="main-image-thumb-item-item" id="img-cd"
+                    style="display: table-cell;
+                            box-sizing: border-box;
+                            border: 0.5px solid #979797;
+                                border-top-color: rgb(151, 151, 151);
+                                border-top-style: solid;
+                                border-top-width: 0.5px;
+                                border-right-color: rgb(151, 151, 151);
+                                border-right-style: solid;
+                                border-right-width: 0.5px;
+                                border-bottom-color: rgb(151, 151, 151);
+                                border-bottom-style: solid;
+                                border-bottom-width: 0.5px;
+                                border-left-color: rgb(151, 151, 151);
+                                border-left-style: solid;
+                                border-left-width: 0.5px;
+                                border-image-source: initial;
+                                border-image-slice: initial;
+                                border-image-width: initial;
+                                border-image-outset: initial;
+                                border-image-repeat: initial;
+                            overflow: hidden;
+                                overflow-x: hidden;
+                                overflow-y: hidden;
+                            cursor: pointer;">
+                        <div id="lens"></div>
+                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+                </li>
+            </ul>
 
             <section>
                 <div class="mt-4 mb-5">
