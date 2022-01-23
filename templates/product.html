@@ -9,14 +9,22 @@
       <div class="row wow fadeIn">
 
         <!--Grid column-->
+{#        <div class="col-md-6 mb-4">#}
+{##}
+{#            <div id="img-container">#}
+{#                <div id="lens"></div>#}
+{#                <img id="featured" src="{{ item.image.url }}" class="card-img-top">#}
+{#            </div>#}
+{##}
+{#        </div>#}
         <div class="col-md-6 mb-4">
-
-            <div id="img-container">
-                <div id="lens"></div>
-                <img id="featured" src="{{ item.image.url }}" class="card-img-top">
+            <div class = "img-showcase" id="img-container">
+              <img id="featured" src="{{ item.image.url }}" alt = "shoe image">
+              <img id="featured" src="{{ item.image.url }}" alt = "shoe image">
+              <img id="featured" src="{{ item.image.url }}" alt = "shoe image">
+              <img id="featured" src="{{ item.image.url }}" alt = "shoe image">
             </div>
-
-        </div>
+          </div>
         <!--Grid column-->
 
         <!--Grid column-->
@@ -42,137 +50,29 @@
 
             <p>{{ object.description }}</p>
             <p>Choose your color</p>
-            <ul class="main-image-thumb-ul" id="card-image"
-            style="margin-right: 0;
-                   margin-top: 0;
-                   margin-bottom: 0;
-                   margin-left: 0;
-                   padding: 0;
-                   padding-top: 0;
-                   padding-right: 0;
-                   padding-bottom: 0;
-                   padding-left: 0;
-                   font: inherit;
-                   vertical-align: baseline;
-                   display: table;
-                   border-collapse: collapse;
-                   list-style: none;
-                   :after, :before{
-                        box-sizing: border-box;
-                   }">
-                <li class="main-image-thumb-item-active" id="img-cd-ac"
-                    style="display: table-cell;
-                            box-sizing: border-box;
-                            border: 0.5px solid #979797;
-                                border-top-color: rgb(151, 151, 151);
-                                border-top-style: solid;
-                                border-top-width: 0.5px;
-                                border-right-color: rgb(151, 151, 151);
-                                border-right-style: solid;
-                                border-right-width: 0.5px;
-                                border-bottom-color: rgb(151, 151, 151);
-                                border-bottom-style: solid;
-                                border-bottom-width: 0.5px;
-                                border-left-color: rgb(151, 151, 151);
-                                border-left-style: solid;
-                                border-left-width: 0.5px;
-                                border-image-source: initial;
-                                border-image-slice: initial;
-                                border-image-width: initial;
-                                border-image-outset: initial;
-                                border-image-repeat: initial;
-                            overflow: hidden;
-                                overflow-x: hidden;
-                                overflow-y: hidden;
-                            cursor: pointer;">
-                        <div id="lens"></div>
-                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
-                </li>
-                <li class="main-image-thumb-item-item" id="img-cd"
-                    style="display: table-cell;
-                            box-sizing: border-box;
-                            border: 0.5px solid #979797;
-                                border-top-color: rgb(151, 151, 151);
-                                border-top-style: solid;
-                                border-top-width: 0.5px;
-                                border-right-color: rgb(151, 151, 151);
-                                border-right-style: solid;
-                                border-right-width: 0.5px;
-                                border-bottom-color: rgb(151, 151, 151);
-                                border-bottom-style: solid;
-                                border-bottom-width: 0.5px;
-                                border-left-color: rgb(151, 151, 151);
-                                border-left-style: solid;
-                                border-left-width: 0.5px;
-                                border-image-source: initial;
-                                border-image-slice: initial;
-                                border-image-width: initial;
-                                border-image-outset: initial;
-                                border-image-repeat: initial;
-                            overflow: hidden;
-                                overflow-x: hidden;
-                                overflow-y: hidden;
-                            cursor: pointer;">
-                        <div id="lens"></div>
-                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
-                </li>
-                <li class="main-image-thumb-item-item" id="img-cd"
-                    style="display: table-cell;
-                            box-sizing: border-box;
-                            border: 0.5px solid #979797;
-                                border-top-color: rgb(151, 151, 151);
-                                border-top-style: solid;
-                                border-top-width: 0.5px;
-                                border-right-color: rgb(151, 151, 151);
-                                border-right-style: solid;
-                                border-right-width: 0.5px;
-                                border-bottom-color: rgb(151, 151, 151);
-                                border-bottom-style: solid;
-                                border-bottom-width: 0.5px;
-                                border-left-color: rgb(151, 151, 151);
-                                border-left-style: solid;
-                                border-left-width: 0.5px;
-                                border-image-source: initial;
-                                border-image-slice: initial;
-                                border-image-width: initial;
-                                border-image-outset: initial;
-                                border-image-repeat: initial;
-                            overflow: hidden;
-                                overflow-x: hidden;
-                                overflow-y: hidden;
-                            cursor: pointer;">
-                        <div id="lens"></div>
-                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
-                </li>
-                <li class="main-image-thumb-item-item" id="img-cd"
-                    style="display: table-cell;
-                            box-sizing: border-box;
-                            border: 0.5px solid #979797;
-                                border-top-color: rgb(151, 151, 151);
-                                border-top-style: solid;
-                                border-top-width: 0.5px;
-                                border-right-color: rgb(151, 151, 151);
-                                border-right-style: solid;
-                                border-right-width: 0.5px;
-                                border-bottom-color: rgb(151, 151, 151);
-                                border-bottom-style: solid;
-                                border-bottom-width: 0.5px;
-                                border-left-color: rgb(151, 151, 151);
-                                border-left-style: solid;
-                                border-left-width: 0.5px;
-                                border-image-source: initial;
-                                border-image-slice: initial;
-                                border-image-width: initial;
-                                border-image-outset: initial;
-                                border-image-repeat: initial;
-                            overflow: hidden;
-                                overflow-x: hidden;
-                                overflow-y: hidden;
-                            cursor: pointer;">
-                        <div id="lens"></div>
-                        <img id="featured" src="{{ item.image.url }}" class="card-img-top">
-                </li>
-            </ul>
+            <div class = "img-select">
+                <div class = "img-item">
+                  <a href = "#" data-id = "1">
+                    <img src = "shoes_images/shoe_1.jpg" alt = "shoe image">
+                  </a>
+                </div>
+                <div class = "img-item">
+                  <a href = "#" data-id = "2">
+                    <img src = "shoes_images/shoe_2.jpg" alt = "shoe image">
+                  </a>
+                </div>
+                <div class = "img-item">
+                  <a href = "#" data-id = "3">
+                    <img src = "shoes_images/shoe_3.jpg" alt = "shoe image">
+                  </a>
+                </div>
+                <div class = "img-item">
+                  <a href = "#" data-id = "4">
+                    <img src = "shoes_images/shoe_4.jpg" alt = "shoe image">
+                  </a>
+                </div>
+              </div>
+            </div>
 
             <section>
                 <div class="mt-4 mb-5">
@@ -256,73 +156,92 @@
 
     </div>
   <script>
-      function imageZoom(imgID){
-          let img = document.getElementById(imgID)
-          let lens = document.getElementById('lens')
+      const imgs = document.querySelectorAll('.img-select a');
+      const imgBtns = [...imgs];
+      let imgId = 1;
 
-          lens.style.backgroundImage = `url( ${img.src} )`
+      imgBtns.forEach((imgItem) => {
+            imgItem.addEventListener('click', (event) => {
+                event.preventDefault();
+                imgId = imgItem.dataset.id;
+                slideImage();
+            });
+      });
 
-          let ratio = 1
+      function slideImage(){
+            const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
-          lens.style.backgroundSize = (img.width * ratio) + 'px' + (img.height * ratio) + 'px';
-
-          img.addEventListener("mousemove", moveLens)
-          lens.addEventListener("mousemove", moveLens)
-          img.addEventListener("touchmove", moveLens)
-
-          function moveLens(){
-
-              //1
-              let pos = getCursor()
-              console.log('pos:', pos)
-
-              //2
-              let positionLeft = pos.x - (lens.offsetWidth / 2)
-              let positionTop = pos.y - (lens.offsetHeight / 2)
-
-              //5
-              if(positionLeft < 0 ){
-                  positionLeft = 0
-              }
-
-              if(positionTop < 0 ){
-                  positionTop = 0
-              }
-
-              if(positionLeft > img.width - lens.offsetWidth / 3){
-                  positionLeft = img.width - lens.offsetWidth / 3
-              }
-
-              if(positionTop > img.height - lens.offsetHeight / 3){
-                  positionTop = img.height - lens.offsetHeight / 3
-              }
-
-              //3
-              lens.style.left = positionLeft +'px';
-              lens.style.top = positionTop +'px';
-
-              //4
-              lens.style.backgroundPosition = "-" + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px'
-          }
-
-          function getCursor(){
-
-              let e = window.event
-              let bounds = img.getBoundingClientRect()
-
-              //console.log('e:', e)
-              //console.log('bounds:', bounds)
-
-              let x = e.pageX - bounds.left
-              let y = e.pageX - bounds.top
-              x = x - window.pageXOffset;
-              y = y - window.pageYOffset;
-
-              return {'x':x, 'y':y}
-          }
+            document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
       }
 
-      imageZoom('featured')
+      window.addEventListener('resize', slideImage);
+      {#function imageZoom(imgID){#}
+      {#    let img = document.getElementById(imgID)#}
+      {#    let lens = document.getElementById('lens')#}
+      {##}
+      {#    lens.style.backgroundImage = `url( ${img.src} )`#}
+      {##}
+      {#    let ratio = 1#}
+      {##}
+      {#    lens.style.backgroundSize = (img.width * ratio) + 'px' + (img.height * ratio) + 'px';#}
+      {##}
+      {#    img.addEventListener("mousemove", moveLens)#}
+      {#    lens.addEventListener("mousemove", moveLens)#}
+      {#    img.addEventListener("touchmove", moveLens)#}
+      {##}
+      {#    function moveLens(){#}
+      {##}
+      {#        //1#}
+      {#        let pos = getCursor()#}
+      {#        console.log('pos:', pos)#}
+      {##}
+      {#        //2#}
+      {#        let positionLeft = pos.x - (lens.offsetWidth / 2)#}
+      {#        let positionTop = pos.y - (lens.offsetHeight / 2)#}
+      {##}
+      {#        //5#}
+      {#        if(positionLeft < 0 ){#}
+      {#            positionLeft = 0#}
+      {#        }#}
+      {##}
+      {#        if(positionTop < 0 ){#}
+      {#            positionTop = 0#}
+      {#        }#}
+      {##}
+      {#        if(positionLeft > img.width - lens.offsetWidth / 3){#}
+      {#            positionLeft = img.width - lens.offsetWidth / 3#}
+      {#        }#}
+      {##}
+      {#        if(positionTop > img.height - lens.offsetHeight / 3){#}
+      {#            positionTop = img.height - lens.offsetHeight / 3#}
+      {#        }#}
+      {##}
+      {#        //3#}
+      {#        lens.style.left = positionLeft +'px';#}
+      {#        lens.style.top = positionTop +'px';#}
+      {##}
+      {#        //4#}
+      {#        lens.style.backgroundPosition = "-" + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px'#}
+      {#    }#}
+      {##}
+      {#    function getCursor(){#}
+      {##}
+      {#        let e = window.event#}
+      {#        let bounds = img.getBoundingClientRect()#}
+      {##}
+      {#        //console.log('e:', e)#}
+      {#        //console.log('bounds:', bounds)#}
+      {##}
+      {#        let x = e.pageX - bounds.left#}
+      {#        let y = e.pageX - bounds.top#}
+      {#        x = x - window.pageXOffset;#}
+      {#        y = y - window.pageYOffset;#}
+      {##}
+      {#        return {'x':x, 'y':y}#}
+      {#    }#}
+      {#}#}
+      {##}
+      {#imageZoom('featured')#}
   </script>
   </main>
 
