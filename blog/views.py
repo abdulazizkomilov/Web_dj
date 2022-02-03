@@ -17,7 +17,7 @@ from django.urls import reverse_lazy
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 
-stripe.api_key = 'sk_test_51KCidHH6jow4Crsu1Gu7f49lc60nzwRVQDLadXexlb4kg9ZqKufbqQhpoiKKzTlQkyBpAYI89StcpmO91NZxDMU500drZDPsTD'
+stripe.api_key = 'pk_test_51KCidHH6jow4CrsuQQHRGYXKxW1jjXRuIhbiLpCQCTcp3k4UGy0tzXq8gPjtnDvDmphmGUYuVswHRwTWWrF7jUQ800VbuzxvFJ'
 
 def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20))
@@ -213,7 +213,7 @@ class PaymentView(View):
             context = {
                 'order': order,
                 'DISPLAY_COUPON_FORM': False,
-                'STRIPE_PUBLIC_KEY' : 'sk_test_51KCidHH6jow4Crsu1Gu7f49lc60nzwRVQDLadXexlb4kg9ZqKufbqQhpoiKKzTlQkyBpAYI89StcpmO91NZxDMU500drZDPsTD'
+                'STRIPE_PUBLIC_KEY' : 'pk_test_51KCidHH6jow4CrsuQQHRGYXKxW1jjXRuIhbiLpCQCTcp3k4UGy0tzXq8gPjtnDvDmphmGUYuVswHRwTWWrF7jUQ800VbuzxvFJ'
             }
             userprofile = self.request.user.userprofile
             if userprofile.one_click_purchasing:
@@ -240,7 +240,7 @@ class PaymentView(View):
         form = PaymentForm(self.request.POST)
         userprofile = UserProfile.objects.get(user=self.request.user)
         if form.is_valid():
-            token = form.cleaned_data.get('sk_test_51KCidHH6jow4Crsu1Gu7f49lc60nzwRVQDLadXexlb4kg9ZqKufbqQhpoiKKzTlQkyBpAYI89StcpmO91NZxDMU500drZDPsTD')
+            token = form.cleaned_data.get('pk_test_51KCidHH6jow4CrsuQQHRGYXKxW1jjXRuIhbiLpCQCTcp3k4UGy0tzXq8gPjtnDvDmphmGUYuVswHRwTWWrF7jUQ800VbuzxvFJ')
             save = form.cleaned_data.get('save')
             use_default = form.cleaned_data.get('use_default')
 
