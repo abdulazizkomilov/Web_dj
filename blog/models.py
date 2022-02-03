@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
-from django.views.generic import CreateView
+
 
 CATEGORY_CHOICES = (
     ('S', 'Shirt'),
@@ -23,12 +23,10 @@ ADDRESS_CHOICES = (
     ('S', 'Shipping'),
 )
 
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     score = models.IntegerField(default=0);
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(CreateView, on_delete=models.CASCADE)
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     stripe_customer_id = models.CharField(max_length=50, blank=True, null=True)
     one_click_purchasing = models.BooleanField(default=False)
 

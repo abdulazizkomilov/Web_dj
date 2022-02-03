@@ -19,7 +19,6 @@ from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Us
 
 stripe.api_key = 'pk_test_51KCidHH6jow4CrsuQQHRGYXKxW1jjXRuIhbiLpCQCTcp3k4UGy0tzXq8gPjtnDvDmphmGUYuVswHRwTWWrF7jUQ800VbuzxvFJ'
 
-
 def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20))
 
@@ -37,12 +36,6 @@ def is_valid_form(values):
         if field == '':
             valid = False
     return valid
-
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
-
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):
