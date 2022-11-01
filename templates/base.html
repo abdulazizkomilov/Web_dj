@@ -1,54 +1,147 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{% block head_title %}{% endblock %}</title>
-  {% block extra_head %}
-  {% endblock %}
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
-  <link href="/media/images/10.png" rel="shortcut icon" type="image/x-icon">
-  <style type="text/css">
-    html,
-    body,
-    header,
-    .carousel {
-      height: 60vh;
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css" id="nanobarcss">.nanobar{width:100%;height:4px;z-index:9999;top:0}.bar{width:0;height:100%;transition:height .3s;background:#000}</style>
+
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+
+    <link href="" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script>
+    function browserSupportsAllFeatures() {
+        return window.Promise
+            && window.fetch
+            && window.URL
+            && window.URLSearchParams
+            && window.WeakMap
+            // object-fit support
+            && ('objectFit' in document.documentElement.style);
     }
 
-    @media (max-width: 740px) {
-
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
+    function loadScript(src) {
+        var js = document.createElement('script');
+        js.src = src;
+        js.onerror = function () {
+            console.error('Failed to load polyfill script ' + src);
+        };
+        document.head.appendChild(js);
     }
 
-    @media (min-width: 800px) and (max-width: 850px) {
-
-      html,
-      body,
-      header,
-      .carousel {
-        height: 100vh;
-      }
+    if (!browserSupportsAllFeatures()) {
+        loadScript('https://cdn11.bigcommerce.com/s-e4sunte/stencil/c8ff5bf0-91ac-0139-a02e-7e0cfece785b/dist/theme-bundle.polyfills.js');
     }
-  </style>
+</script>
+    <script>
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.loadMode = 1;
+    </script>
+
+
+    <link href="{% static 'css' %}" rel="stylesheet">
+    <link data-stencil-stylesheet="" href="{% static 'theme-7d9a3570-9b57-0139-68ed-5abb7a37060d.css' %}" rel="stylesheet">
+
+
+    <style></style>
+    <link rel="stylesheet" href="{% static 'photoswipe.min.css' %}">
+    <link rel="stylesheet" href="{% static 'default-skin.min.css' %}">
 </head>
+<body class="navigation-hover page-type-category theme-show-outstock-badge theme-header-sticky">    
+        
+<header class="header" role="banner" data-stickymenu="">
+    
+    <a class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+    </a>
 
-{% include "navbar.html" %}
+    <div class="header-main">
+        <div class="header-main-container header-main-container--left">
+                <div class="header-logo header-logo--left">
+                    <a href="">
+            <div class="header-logo-image-container">
+                <img class="header-logo-image" src="{% static 'a-logo.png' %}" width="40" height="40" alt="Django and Juliette" title="Django and Juliette">
+            </div></a>
+                </div>
 
-<body>
+            <div class="navPages-container" id="menu" data-menu="" aria-hidden="true">
+                <p class="navPages-container-heading"><span class="navPages-container-heading-ellipse">More</span></p>
+                <a class="mobile-panel-close" data-mobile-menu-toggle="menu" href="" aria-controls="menu" aria-expanded="false"><svg><use xlink:href="#icon-close" aria-hidden="true"></use></svg></a>
+                <nav class="navPages">
+    <ul class="navPages-list navPages-list--main" id="navPages-main">
+        <li class="navPages-item navPages-item--home">
+            <a class="navPages-action" href="">Home</a>
+        </li>
+            <li class="navPages-item navPages-item--category">
+                <a class="navPages-action activePage" href="">View All</a>
+            </li>
+            <li class="navPages-item navPages-item--category">
+                <a class="navPages-action" href="">Boots</a>
+            </li>
+            <li class="navPages-item navPages-item--category">
+                <a class="navPages-action" href="">Flats</a>
+            </li>
+            <li class="navPages-item navPages-item--category">
+                <a class="navPages-action" style="margin-left: 3rem;" href="">Register</a>
+            </li>
+            <li class="navPages-item navPages-item--category">
+                <a class="navPages-action" href="">Login</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Privacy Policy</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">About Django &amp; Juliette </a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Contact Us</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Become a Stockist</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Find a Stockist</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Silent D by Django &amp; Juliette</a>
+            </li>
+            <li class="navPages-item navPages-item-page u-hiddenVisually-desktop">
+                    <a class="navPages-action is-root" href="">Shop our Instagram</a>
+            </li>
+        <li class="navPages-item navPages-item--dropdown-toggle u-hiddenVisually">
+            <a class="navPages-action" data-dropdown="navPages-dropdown" href="" title="Show All" aria-expanded="false"><i class="icon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-more"></use></svg></i></a>
+        </li>
+    </ul>
+    <ul class="navPages-list navPages-list--user">
+            <li class="navPages-item">
+                            </li>
+    </ul>
 
-    <div class="mt-5 pt-4">
+    <ul class="navPages-list navPages-list--dropdown" id="navPages-dropdown" data-dropdown-content=""></ul>
+</nav>
+            </div>
+
+            <nav class="navUser navUser--alt">
+</nav>
+
+<nav class="navUser">
+    <ul class="navUser-section">
+
+        <li class="navUser-item navUser-item--cart">
+            <a class="navUser-action" data-cart-preview="" data-dropdown="cart-preview-dropdown" data-options="align:right" href="" aria-expanded="false">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M13.5 21c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5m0-2c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5m-6 2c-.276 0-.5-.224-.5-.5s.224-.5.5-.5.5.224.5.5-.224.5-.5.5m0-2c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5-.672-1.5-1.5-1.5m16.5-16h-2.964l-3.642 15h-13.321l-4.073-13.003h19.522l.728-2.997h3.75v1zm-22.581 2.997l3.393 11.003h11.794l2.674-11.003h-17.861z"/></svg>
+                <span class="navUser-item-cartLabel">Cart</span>
+                <span class="countPill cart-quantity">0</span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content="" aria-hidden="true"></div>
+        </li>
+    </ul>
+</nav>
+<div class="mt-5 pt-4">
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -60,17 +153,352 @@
         {% endfor %}
     {% endif %}
     </div>
+        </div>
+    </div>
+</header>
+<div class="chiara-stickymenu-placeholder" style="height: 84.9844px;"></div>
 
-    {% block content %}
-    {% endblock content %}
 
-    {% block extra_body %}
-    {% endblock %}
+{% block content %}
+{% endblock content %}
 
-    {% include "footer.html" %}
-    {% include "scripts.html" %}
+{% block extra_body %}
+{% endblock %}
 
-    {% block extra_scripts %}
-    {% endblock extra_scripts %}
-</body>
-</html>
+
+<div data-content-region="footer_before"></div>
+<div data-content-region="footer_before--global"></div>
+
+<footer class="footer" role="contentinfo">
+
+    <div data-content-region="footer_before_columns--global"></div>
+
+    <div class="container">
+        <section class="footer-info">
+            <div class="footer-info-left">
+                <article class="footer-info-col footer-info-col--webpages" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading" data-collapsible="footer-info-list-webpages" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="false" aria-controls="footer-info-list-webpages">About Us</h5>
+                    <ul class="footer-info-list" id="footer-info-list-webpages" aria-hidden="true">
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">About Django &amp; Juliette </a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Become a Stockist</a></li>
+                        <li><a href="">Find a Stockist</a></li>
+                        <li><a href="">Silent D by Django &amp; Juliette</a></li>
+                        <li><a href="">Shop our Instagram</a></li>
+                    </ul>
+                    <div data-content-region="footer_below_pages--global"></div>
+                </article>
+
+                <article class="footer-info-col footer-info-col--categories" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading" data-collapsible="footer-info-list-categories" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="false" aria-controls="footer-info-list-categories">Categories</h5>
+                    <ul class="footer-info-list" id="footer-info-list-categories" aria-hidden="true">
+                        <li><a href="">View All</a></li>
+                        <li><a href="">Boots</a></li>
+                        <li><a href="">Flats</a></li>
+                        <li><a href="">Heels</a></li>
+                        <li><a href="">Sandals</a></li>
+                    </ul>
+                    <div data-content-region="footer_below_categories--global"></div>
+                </article>
+
+
+
+
+            </div>
+            <div class="footer-info-right">
+                <article class="footer-info-col footer-info-col--address" data-section-type="footer-webPages">
+                    <div data-content-region="footer_before_storeinfo--global"></div>
+                    <h5 class="footer-info-heading"><a href="">
+            <span class="footer-logo-image-container">
+                <img class="footer-logo-image ls-is-cached lazyloaded" src="{% static 'a-logo.png' %}" width="50" height="50" data-src="https://cdn11.bigcommerce.com/s-e4sunte/images/stencil/250x50/django--juliette_1565584412__50468.original.png" alt="Django and Juliette" title="Django and Juliette">
+            </span>
+</a>
+</h5>
+                    <ul class="footer-info-list">
+                            <li><address>28 Victoria Cres
+Abbotsford VIC
+3067 Australia</address></li>
+                                    <li><a href="tel:1800 020 089">Call us at 1800 020 089</a></li>
+                    </ul>
+                    <div data-content-region="footer_below_storeinfo--global"></div>
+                </article>
+                    <article class="footer-info-col footer-info-col--newsletter" data-section-type="newsletterSubscription">
+    <div class="footer-newsletter-content">
+        <h5 class="footer-info-heading">Subscribe to our newsletter</h5>
+    </div>
+    <form class="form footer-newsletter-form" action="" method="post">
+        <fieldset class="form-fieldset">
+            <input type="hidden" name="action" value="subscribe">
+            <input type="hidden" name="nl_first_name" value="bc">
+            <input type="hidden" name="check" value="1">
+            <div class="form-field">
+                <label class="form-label is-srOnly" for="nl_email">Email Address</label>
+                <div class="form-prefixPostfix wrap">
+                    <input class="form-input" id="nl_email" name="nl_email" type="email" value="" placeholder="Your email address">
+                    <input class="button button--primary form-prefixPostfix-button--postfix" type="submit" value="Subscribe">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div data-content-region="footer_below_newsletter--global"></div>
+</article>
+                <article class="footer-info-col footer-info-col--socials" data-section-type="newsletterSubscription">
+                    <h5 class="footer-info-heading">Connect With Us</h5>
+                    
+                    <div data-content-region="footer_below_socials--global"></div>
+
+                        <h5 class="footer-info-heading">Accepted Payments</h5>
+                        
+                        <div data-content-region="ssl_site_seal--global"></div>
+
+                        <div data-content-region="footer_below_payments--global"></div>
+                    
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <div data-content-region="footer_below_columns--global"></div>
+
+    <div class="footer-copyright">
+        <div class="container">
+                
+                <p class="powered-by">© 2022 Django</p>
+
+            <div data-content-region="footer_below_copyright--global"><div data-layout-id="a7d6641d-dd68-4a89-b237-ed4e6db7a2e6"><div data-sub-layout-container="0011a99b-8bb5-4ad2-9920-acb112edbaa4" data-layout-name="Layout">
+  <style data-container-styling="0011a99b-8bb5-4ad2-9920-acb112edbaa4">
+    [data-sub-layout-container="0011a99b-8bb5-4ad2-9920-acb112edbaa4"] {
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      z-index: 0;
+      position: relative;
+    }
+    [data-sub-layout-container="0011a99b-8bb5-4ad2-9920-acb112edbaa4"]:after {
+      background-position: center center;
+      background-size: cover;
+      /* auto content: ""; */
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+  <div data-sub-layout="b865be54-b45d-4aa1-8d5a-2727e628fa75">
+    <style data-column-styling="b865be54-b45d-4aa1-8d5a-2727e628fa75">
+      [data-sub-layout="b865be54-b45d-4aa1-8d5a-2727e628fa75"] {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        flex-basis: 100%;
+        max-width: 100%;
+        z-index: 0;
+        justify-content: center;
+        padding-right: 10.5px;
+        padding-left: 10.5px;
+        position: relative;
+      }
+      [data-sub-layout="b865be54-b45d-4aa1-8d5a-2727e628fa75"]:after {
+        background-position: center center;
+        background-size: cover;
+        /* auto content: ""; */
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      @media only screen and (max-width: 700px) {
+        [data-sub-layout="b865be54-b45d-4aa1-8d5a-2727e628fa75"] {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+    <div data-widget-id="a10738e7-2756-4696-89b2-742e76e8d365" data-placement-id="e3115b7e-b6cb-481a-86a1-3efdb4979ec8" data-placement-status="ACTIVE"><style>
+    .sd-simple-text-a10738e7-2756-4696-89b2-742e76e8d365 {
+      padding-top: 0px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+
+    }
+
+    .sd-simple-text-a10738e7-2756-4696-89b2-742e76e8d365 * {
+      margin: 0;
+      padding: 0;
+
+        color: rgba(129,129,129,1);
+        font-family: inherit;
+        font-weight: 300;
+        font-size: 12px;
+        min-height: 12px;
+
+    }
+
+    .sd-simple-text-a10738e7-2756-4696-89b2-742e76e8d365 {
+        text-align: center;
+    }
+
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365 {
+      min-width: 14px;
+      line-height: 1.5;
+      display: inline-block;
+    }
+
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365[data-edit-mode="true"]:hover,
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365[data-edit-mode="true"]:active,
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365[data-edit-mode="true"]:focus {
+      outline: 1px dashed #3C64F4;
+    }
+
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365 strong,
+    #sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365 strong * {
+      font-weight: bold;
+    }
+</style>
+
+<div class="sd-simple-text-a10738e7-2756-4696-89b2-742e76e8d365 ">
+  <div id="sd-simple-text-editable-a10738e7-2756-4696-89b2-742e76e8d365" data-edit-mode="">
+    Australian Footwear Pty Ltd ABN 40168259210
+  </div>
+</div>
+
+</div>
+  </div>
+</div></div></div>
+        </div>
+    </div>
+</footer>
+
+<div data-content-region="footer_below--global"></div>
+
+<div class="navCatalog-panel" id="navCatalog-panel" aria-hidden="true">
+    <p class="mobile-panel-heading"><span class="mobile-panel-heading-ellipse">Categories</span></p>
+    <a class="mobile-panel-close" data-collapsible="navCatalog-panel" data-group-collapsible="main" aria-controls="navCatalog-panel" aria-expanded="false"><svg><use xlink:href="#icon-close" aria-hidden="true"></use></svg></a>
+    <div class="navCatalog-panel-body" data-lock-body-scroll="">
+        <nav class="navPages navPages--catalogPanel">
+            <ul class="navPages-list">
+                    <li class="navPages-item">
+                        <a class="navPages-action activePage" href="">View All</a>
+                    </li>
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="">Boots</a>
+                    </li>
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="">Flats</a>
+                    </li>
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="">Heels</a>
+                    </li>
+                    <li class="navPages-item">
+                        <a class="navPages-action" href="">Sandals</a>
+                    </li>
+                
+                    <li class="navPages-item navPages-item--brands">
+                        <a class="navPages-action has-subMenu is-root" href="" data-collapsible="navPages-brands-root" data-collapsible-disabled-breakpoint="large" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed" aria-expanded="false" aria-controls="navPages-brands-root">
+                            Shop by Brands <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down"></use></svg></i>
+                        </a>
+                        <div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-brands-root" aria-hidden="true" tabindex="-1">
+                            <ul class="navPage-subMenu-list">
+                                <li class="navPage-subMenu-item-parent">
+                                    <a class="navPage-subMenu-action navPages-action" href="">View all brands</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="bottomBar">
+    <ul class="bottomBar-list">
+        <li class="bottomBar-item">
+            <a class="bottomBar-action bottomBar-action--home" href="">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 11.414v12.586h-20v-12.586l-1.293 1.293-.707-.707 12-12 12 12-.707.707-1.293-1.293zm-6 11.586h5v-12.586l-9-9-9 9v12.586h5v-9h8v9zm-1-7.889h-6v7.778h6v-7.778z"/></svg>
+                <span class="bottomBar-item-label">Home</span>
+            </a>
+        </li>
+        <li class="bottomBar-item">
+            <a class="bottomBar-action bottomBar-action--store" data-collapsible="navCatalog-panel" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="closed" data-group-collapsible="main" aria-expanded="false" aria-controls="navCatalog-panel">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 19h-4v-2h4v2zm2.946-4.036l3.107 3.105-4.112.931 1.005-4.036zm12.054-5.839l-7.898 7.996-3.202-3.202 7.898-7.995 3.202 3.201zm-6 8.92v3.955h-16v-20h7.362c4.156 0 2.638 6 2.638 6s2.313-.635 4.067-.133l1.952-1.976c-2.214-2.807-5.762-5.891-7.83-5.891h-10.189v24h20v-7.98l-2 2.025z"/></svg>
+                <span class="bottomBar-item-label">Register</span>
+            </a>
+        </li>
+        <li class="bottomBar-item">
+            <a class="bottomBar-action bottomBar-action--account" id="navUser-more-toggle2" data-collapsible="navUser-more-panel" data-group-collapsible="main" aria-controls="navUser-more-panel" aria-expanded="false">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.598 9h-1.055c1.482-4.638 5.83-8 10.957-8 6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5c-5.127 0-9.475-3.362-10.957-8h1.055c1.443 4.076 5.334 7 9.902 7 5.795 0 10.5-4.705 10.5-10.5s-4.705-10.5-10.5-10.5c-4.568 0-8.459 2.923-9.902 7zm12.228 3l-4.604-3.747.666-.753 6.112 5-6.101 5-.679-.737 4.608-3.763h-14.828v-1h14.826z"/></svg>
+                <span class="bottomBar-item-label">Login</span>
+            </a>
+        </li>
+        <li class="bottomBar-item">
+            <a class="bottomBar-action bottomBar-action--menu" data-mobile-menu-toggle="menu" aria-controls="menu" aria-expanded="false">
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16.5 11.995c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25zm-6.75 0c0-1.242 1.008-2.25 2.25-2.25s2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25z"/></svg>
+                <span class="bottomBar-item-label">More</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script>window.__webpack_public_path__ = "";</script>
+            <script src="{% static 'theme-bundle.main.js' %}"></script>
+            <script>
+                // Exported in app.js
+                window.stencilBootstrap("category", "{\"categoryProductsPerPage\":12,\"themeSettings\":{\"add_to_cart_btn\":\"all\",\"add_to_cart_popup\":\"default\",\"ajax_add_to_cart\":true,\"alert-backgroundColor\":\"#ffffff\",\"alert-color\":\"#333333\",\"alert-color-alt\":\"#ffffff\",\"alsobought\":false,\"alsobought_checked\":true,\"alsobought_product\":\"related\",\"applePay-button\":\"black\",\"blockquote-cite-font-color\":\"#999999\",\"blog_post_size\":\"832x750\",\"blog_posts_per_page\":6,\"blog_size\":\"400x360\",\"body-bg\":\"#ffffff\",\"body-font\":\"Google_Rubik_400,400i,500,500i,700,700i\",\"bottomBar\":\"top\",\"bottomBar-bgColor\":\"#ffffff\",\"bottomBar-color\":\"#131313\",\"bottomBar-color-active\":\"#000000\",\"bottomBar-fontSize\":\"11\",\"bottomBar-icon-size\":\"22\",\"bottomBar_show_brands\":true,\"brand_size\":\"350x175\",\"brandpage_infiniteScroll\":true,\"brandspage_infiniteScroll\":true,\"button--default-backgroundColor\":\"#ffffff\",\"button--default-backgroundColorActive\":\"#ffffff\",\"button--default-backgroundColorHover\":\"#000000\",\"button--default-borderColor\":\"#000000\",\"button--default-borderColorActive\":\"#000000\",\"button--default-borderColorHover\":\"#000000\",\"button--default-color\":\"#000000\",\"button--default-colorActive\":\"#000000\",\"button--default-colorHover\":\"#ffffff\",\"button--disabled-backgroundColor\":\"#cccccc\",\"button--disabled-borderColor\":\"#cccccc\",\"button--disabled-color\":\"#ffffff\",\"button--icon-svg-color\":\"#757575\",\"button--primary-backgroundColor\":\"#000000\",\"button--primary-backgroundColorActive\":\"#757575\",\"button--primary-backgroundColorHover\":\"#757575\",\"button--primary-color\":\"#ffffff\",\"button--primary-colorActive\":\"#ffffff\",\"button--primary-colorHover\":\"#ffffff\",\"card--alternate-backgroundColor\":\"#ffffff\",\"card--alternate-borderColor\":\"#ffffff\",\"card--alternate-color--hover\":\"#131313\",\"card-figcaption-button-background\":\"#000000\",\"card-figcaption-button-color\":\"#ffffff\",\"card-title-color\":\"#666666\",\"card-title-color-hover\":\"#DDDDDD\",\"card_custom_fields\":\"\",\"card_img_hover\":false,\"card_show_brand\":false,\"card_show_img_slider\":false,\"card_show_swatches\":false,\"card_swatch_option_size\":\"18x18\",\"carousel-arrow-bgColor\":\"#ffffff\",\"carousel-arrow-borderColor\":\"#ffffff\",\"carousel-arrow-color\":\"#000000\",\"carousel-bgColor\":\"#ffffff\",\"carousel-bgColor-alt\":\"#ffffff\",\"carousel-bgOpacity\":\"0\",\"carousel-bgOpacity-alt\":\"0\",\"carousel-button-fontSize\":\"16\",\"carousel-button-style\":\"default\",\"carousel-button-style-alt\":\"default\",\"carousel-description-color\":\"#333333\",\"carousel-description-color-alt\":\"#333333\",\"carousel-description-fontSize\":\"18\",\"carousel-dot-bgColor\":\"#ffffff\",\"carousel-dot-color\":\"#EEEEEE\",\"carousel-dot-color-active\":\"#000000\",\"carousel-heading-fontSize\":\"60\",\"carousel-height\":\"equal\",\"carousel-mobile-height\":\"400\",\"carousel-slide1-position\":\"center\",\"carousel-slide1-style\":\"default\",\"carousel-slide2-position\":\"center\",\"carousel-slide2-style\":\"alt\",\"carousel-slide3-position\":\"center\",\"carousel-slide3-style\":\"default\",\"carousel-slide4-position\":\"center\",\"carousel-slide4-style\":\"alt\",\"carousel-slide5-position\":\"center\",\"carousel-slide5-style\":\"default\",\"carousel-title-color\":\"#444444\",\"carousel-title-color-alt\":\"#444444\",\"carousel-transition\":\"\",\"carousel-width\":\"auto\",\"carousel_mobile_height_fixed\":false,\"carousel_vid1\":\"\",\"carousel_vid2\":\"\",\"carousel_vid3\":\"\",\"carousel_vid4\":\"\",\"carousel_vid5\":\"\",\"categorypage_infiniteScroll\":true,\"categorypage_show_sub\":10,\"categorypage_show_sub_thumb\":false,\"checkRadio-backgroundColor\":\"#ffffff\",\"checkRadio-borderColor\":\"#cccccc\",\"checkRadio-color\":\"#333333\",\"checkout_theme\":false,\"color-black\":\"#000000\",\"color-error\":\"#cc4749\",\"color-errorLight\":\"#ffdddd\",\"color-grey\":\"#999999\",\"color-greyDark\":\"#666666\",\"color-greyDarker\":\"#333333\",\"color-greyDarkest\":\"#000000\",\"color-greyLight\":\"#999999\",\"color-greyLighter\":\"#cccccc\",\"color-greyLightest\":\"#e5e5e5\",\"color-greyMedium\":\"#757575\",\"color-info\":\"#111111\",\"color-infoLight\":\"#008a06\",\"color-price\":\"#000000\",\"color-primary\":\"#CCCCCC\",\"color-primaryDark\":\"#666666\",\"color-primaryDarker\":\"#333333\",\"color-primaryLight\":\"#999999\",\"color-secondary\":\"#ffffff\",\"color-secondaryDark\":\"#e5e5e5\",\"color-secondaryDarker\":\"#cccccc\",\"color-success\":\"#008a06\",\"color-successLight\":\"#d5ffd8\",\"color-textBase\":\"#131313\",\"color-textBase--active\":\"#757575\",\"color-textBase--hover\":\"#757575\",\"color-textHeading\":\"#000000\",\"color-textHeading-alt\":\"#000000\",\"color-textLink\":\"#666666\",\"color-textLink--active\":\"#333333\",\"color-textLink--hover\":\"#333333\",\"color-textSecondary\":\"#999999\",\"color-textSecondary--active\":\"#333333\",\"color-textSecondary--hover\":\"#333333\",\"color-warning\":\"#f1a500\",\"color-warningLight\":\"#fffdea\",\"color-white\":\"#ffffff\",\"color-whitesBase\":\"#e5e5e5\",\"color_badge_product_custom_badges\":\"#000000\",\"color_badge_product_outstock_badges\":\"#eeeeee\",\"color_badge_product_sale_badges\":\"#CCCCCC\",\"color_hover_product_sale_badges\":\"#CCCCCC\",\"color_text_product_custom_badges\":\"#ffffff\",\"color_text_product_outstock_badges\":\"#282828\",\"color_text_product_sale_badges\":\"#ffffff\",\"contact_email\":\"\",\"contact_link\":\"\",\"contact_linkText\":\"\",\"contact_phone\":\"\",\"contact_phoneText\":\"\",\"container-border-global-color-base\":\"#e5e5e5\",\"container-fill-base\":\"#ffffff\",\"container-fill-dark\":\"#f0f0f0\",\"copyright-backgroundColor\":\"#f0f0f0\",\"copyright-color\":\"#666666\",\"copyright-linkColor\":\"#323232\",\"copyright-linkColor-hover\":\"#CCCCCC\",\"csspreload\":\"\",\"default_image_brand\":\"img/BrandDefault.gif\",\"default_image_gift_certificate\":\"img/GiftCertificate.png\",\"default_image_product\":\"img/ProductDefault.gif\",\"dropdown--quickSearch-backgroundColor\":\"#e5e5e5\",\"fb_page\":\"\",\"fontSize-h1\":\"28\",\"fontSize-h2\":\"24\",\"fontSize-h3\":\"20\",\"fontSize-h4\":\"18\",\"fontSize-h5\":\"14\",\"fontSize-h6\":\"11\",\"fontSize-root\":\"13\",\"footer-backgroundColor\":\"#DDDDDD\",\"footer-backgroundColor-alt\":\"#ffffff\",\"footer-borderColor\":\"#dddddd\",\"footer-color\":\"#818181\",\"footer-heading-color\":\"#000000\",\"footer-link-color\":\"#323232\",\"footer-link-colorHover\":\"#757575\",\"footer_brands_heading\":\"Our Brands\",\"footer_brands_limit\":\"0\",\"footer_categories_heading\":\"Categories\",\"footer_categories_limit\":\"10\",\"footer_custom1_heading\":\"About Chiara\",\"footer_custom1_link1\":\"#\",\"footer_custom1_link2\":\"#\",\"footer_custom1_link3\":\"#\",\"footer_custom1_link4\":\"#\",\"footer_custom1_link5\":\"#\",\"footer_custom1_link6\":\"\",\"footer_custom1_title1\":\"About Us\",\"footer_custom1_title2\":\"Contact Us\",\"footer_custom1_title3\":\"Privacy Policy\",\"footer_custom1_title4\":\"Terms and Conditions\",\"footer_custom1_title5\":\"Legal Window\",\"footer_custom1_title6\":\"\",\"footer_custom2_heading\":\"Customer Support\",\"footer_custom2_link1\":\"#\",\"footer_custom2_link2\":\"#\",\"footer_custom2_link3\":\"#\",\"footer_custom2_link4\":\"#\",\"footer_custom2_link5\":\"#\",\"footer_custom2_link6\":\"\",\"footer_custom2_title1\":\"Shopping FAQs\",\"footer_custom2_title2\":\"Size and Fit Guides\",\"footer_custom2_title3\":\"Payments\",\"footer_custom2_title4\":\"Shipping Info\",\"footer_custom2_title5\":\"Returns\",\"footer_custom2_title6\":\"\",\"footer_custom3_heading\":\"More About Chiara\",\"footer_custom3_link1\":\"#\",\"footer_custom3_link2\":\"#\",\"footer_custom3_link3\":\"#\",\"footer_custom3_link4\":\"#\",\"footer_custom3_link5\":\"#\",\"footer_custom3_link6\":\"\",\"footer_custom3_title1\":\"Top Searches\",\"footer_custom3_title2\":\"Affiliate Program\",\"footer_custom3_title3\":\"Join Our Community\",\"footer_custom3_title4\":\"Follow Our Blog\",\"footer_custom3_title5\":\"Stundent Discount\",\"footer_custom3_title6\":\"\",\"footer_newsletter_position\":\"right\",\"footer_show_address\":true,\"footer_show_custom1\":false,\"footer_show_custom2\":false,\"footer_show_custom3\":false,\"footer_webpages_heading\":\"About Us\",\"footer_webpages_limit\":\"10\",\"form-label-font-color\":\"#666666\",\"gallery_size\":\"300x300\",\"header-backgroundColor\":\"#ffffff\",\"header_sticky\":true,\"headings-font\":\"Google_Rubik_500\",\"hide_content_navigation\":true,\"home_cats_banner0\":\"/product_images/uploaded_images/cat-banner-1.jpg\",\"home_cats_banner1\":\"/product_images/uploaded_images/cat-banner-2.jpg\",\"home_cats_banner2\":\"/product_images/uploaded_images/cat-banner-3.jpg\",\"home_cats_banner3\":\"/product_images/uploaded_images/cat-banner-4.jpg\",\"home_cats_banner4\":\"//placehold.it/400x600\",\"home_cats_banner5\":\"//placehold.it/400x600\",\"home_cats_banner6\":\"//placehold.it/400x600\",\"home_cats_banner7\":\"//placehold.it/400x600\",\"home_cats_banner8\":\"//placehold.it/400x600\",\"home_cats_banner9\":\"//placehold.it/400x600\",\"home_cats_count\":\"4\",\"home_cats_heading\":\"\",\"home_cats_id\":\"20,3,19,21\",\"home_cats_show_banner\":true,\"home_cats_style\":\"fashion\",\"home_cats_sub_count\":\"0\",\"home_cats_subheading\":\"\",\"homepage_show_carousel\":true,\"homepage_show_carousel_arrows\":true,\"homepage_stretch_carousel_images\":false,\"icon-color\":\"#757575\",\"icon-color-hover\":\"#999999\",\"icon-ratingEmpty\":\"#cccccc\",\"icon-ratingFull\":\"#f1c556\",\"input-bg-color\":\"#ffffff\",\"input-border-color\":\"#cccccc\",\"input-border-color-active\":\"#999999\",\"input-disabled-bg\":\"#ffffff\",\"input-font-color\":\"#666666\",\"instagram-image-fit\":\"contain\",\"instagram_col\":6,\"instagram_count\":6,\"instagram_heading\":\"\",\"instagram_subheading\":\"\",\"instagram_token\":\"\",\"instagram_type\":\"fullwidth\",\"label-backgroundColor\":\"#cccccc\",\"label-color\":\"#ffffff\",\"lightbox_type\":\"photoswipe\",\"loadingOverlay-backgroundColor\":\"#ffffff\",\"logo-fontSize\":\"28\",\"logo-position\":\"left\",\"logo_size\":\"250x50\",\"navPages-childList-fontSize\":\"12\",\"navPages-color\":\"#000000\",\"navPages-color-hover\":\"#CCCCCC\",\"navPages-fontSize\":\"14\",\"navPages-fontWeight\":\"500\",\"navPages-subMenu-backgroundColor\":\"#ffffff\",\"navPages-subMenu-fontSize\":\"13\",\"navPages-subMenu-separatorColor\":\"#e5e5e5\",\"navUser-color\":\"#000000\",\"navUser-color-hover\":\"#CCCCCC\",\"navUser-dropdown-backgroundColor\":\"#ffffff\",\"navUser-dropdown-borderColor\":\"#cccccc\",\"navUser-icon-fontSize\":\"22\",\"navUser-indicator-backgroundColor\":\"#333333\",\"navUser_panel\":true,\"navigation_design\":\"simple\",\"navigation_hover\":true,\"optimizedCheckout-backgroundImage\":\"\",\"optimizedCheckout-backgroundImage-size\":\"1000x400\",\"optimizedCheckout-body-backgroundColor\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-backgroundColor\":\"#131313\",\"optimizedCheckout-buttonPrimary-backgroundColorActive\":\"#000000\",\"optimizedCheckout-buttonPrimary-backgroundColorDisabled\":\"#cccccc\",\"optimizedCheckout-buttonPrimary-backgroundColorHover\":\"#666666\",\"optimizedCheckout-buttonPrimary-borderColor\":\"#cccccc\",\"optimizedCheckout-buttonPrimary-borderColorActive\":\"transparent\",\"optimizedCheckout-buttonPrimary-borderColorDisabled\":\"transparent\",\"optimizedCheckout-buttonPrimary-borderColorHover\":\"transparent\",\"optimizedCheckout-buttonPrimary-color\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorActive\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorDisabled\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-colorHover\":\"#ffffff\",\"optimizedCheckout-buttonPrimary-font\":\"Google_Rubik_400\",\"optimizedCheckout-buttonSecondary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-buttonSecondary-backgroundColorActive\":\"#e5e5e5\",\"optimizedCheckout-buttonSecondary-backgroundColorHover\":\"#f5f5f5\",\"optimizedCheckout-buttonSecondary-borderColor\":\"#cccccc\",\"optimizedCheckout-buttonSecondary-borderColorActive\":\"#757575\",\"optimizedCheckout-buttonSecondary-borderColorHover\":\"#999999\",\"optimizedCheckout-buttonSecondary-color\":\"#131313\",\"optimizedCheckout-buttonSecondary-colorActive\":\"#000000\",\"optimizedCheckout-buttonSecondary-colorHover\":\"#131313\",\"optimizedCheckout-buttonSecondary-font\":\"Google_Rubik_400\",\"optimizedCheckout-colorFocus\":\"#4496f6\",\"optimizedCheckout-contentPrimary-color\":\"#131313\",\"optimizedCheckout-contentPrimary-font\":\"Google_Rubik_400,400i,500,500i,700,700i\",\"optimizedCheckout-contentSecondary-color\":\"#757575\",\"optimizedCheckout-contentSecondary-font\":\"Google_Rubik_400\",\"optimizedCheckout-discountBanner-backgroundColor\":\"#e5e5e5\",\"optimizedCheckout-discountBanner-iconColor\":\"#131313\",\"optimizedCheckout-discountBanner-textColor\":\"#131313\",\"optimizedCheckout-form-textColor\":\"#666666\",\"optimizedCheckout-formChecklist-backgroundColor\":\"#ffffff\",\"optimizedCheckout-formChecklist-backgroundColorSelected\":\"#f5f5f5\",\"optimizedCheckout-formChecklist-borderColor\":\"#cccccc\",\"optimizedCheckout-formChecklist-color\":\"#131313\",\"optimizedCheckout-formField-backgroundColor\":\"#ffffff\",\"optimizedCheckout-formField-borderColor\":\"#cccccc\",\"optimizedCheckout-formField-errorColor\":\"#d14343\",\"optimizedCheckout-formField-inputControlColor\":\"#476bef\",\"optimizedCheckout-formField-placeholderColor\":\"#999999\",\"optimizedCheckout-formField-shadowColor\":\"#e5e5e5\",\"optimizedCheckout-formField-textColor\":\"#131313\",\"optimizedCheckout-header-backgroundColor\":\"#f5f5f5\",\"optimizedCheckout-header-borderColor\":\"#dddddd\",\"optimizedCheckout-header-textColor\":\"#131313\",\"optimizedCheckout-headingPrimary-color\":\"#131313\",\"optimizedCheckout-headingPrimary-font\":\"Google_Rubik_500\",\"optimizedCheckout-headingSecondary-color\":\"#131313\",\"optimizedCheckout-headingSecondary-font\":\"Google_Rubik_500\",\"optimizedCheckout-link-color\":\"#476bef\",\"optimizedCheckout-link-font\":\"Google_Rubik_400\",\"optimizedCheckout-link-hoverColor\":\"#002fe1\",\"optimizedCheckout-loadingToaster-backgroundColor\":\"#131313\",\"optimizedCheckout-loadingToaster-textColor\":\"#ffffff\",\"optimizedCheckout-logo\":\"\",\"optimizedCheckout-logo-position\":\"left\",\"optimizedCheckout-logo-size\":\"250x100\",\"optimizedCheckout-orderSummary-backgroundColor\":\"#ffffff\",\"optimizedCheckout-orderSummary-borderColor\":\"#dddddd\",\"optimizedCheckout-show-backgroundImage\":false,\"optimizedCheckout-show-logo\":\"none\",\"optimizedCheckout-step-backgroundColor\":\"#757575\",\"optimizedCheckout-step-borderColor\":\"#dddddd\",\"optimizedCheckout-step-textColor\":\"#ffffff\",\"overlay-backgroundColor\":\"#333333\",\"pace-progress-backgroundColor\":\"#999999\",\"page-heading-font\":\"Google_Open+Sans_700\",\"page-heading-fontSize\":\"24\",\"payment_icons_position\":\"footer_right\",\"payment_icons_style\":\"color\",\"paymentbuttons-paypal-color\":\"gold\",\"paymentbuttons-paypal-fundingicons\":false,\"paymentbuttons-paypal-label\":\"checkout\",\"paymentbuttons-paypal-layout\":\"horizontal\",\"paymentbuttons-paypal-shape\":\"pill\",\"paymentbuttons-paypal-size\":\"small\",\"paymentbuttons-paypal-tagline\":true,\"pbcst_bannerButton1\":\"View More\",\"pbcst_bannerButton2\":\"View More\",\"pbcst_bannerButton3\":\"\",\"pbcst_bannerButton4\":\"\",\"pbcst_bannerButton5\":\"\",\"pbcst_bannerButton6\":\"\",\"pbcst_bannerHeading1\":\"Wo-<br/>men's<br/>Trends\",\"pbcst_bannerHeading2\":\"Real<br/>Men's<br/>Fashion\",\"pbcst_bannerHeading3\":\"\",\"pbcst_bannerHeading4\":\"\",\"pbcst_bannerHeading5\":\"\",\"pbcst_bannerHeading6\":\"\",\"pbcst_bannerImageDomain1\":\"//store-esi1aufjsk.mybigcommerce.com\",\"pbcst_bannerImageDomain2\":\"//store-esi1aufjsk.mybigcommerce.com\",\"pbcst_bannerImageDomain3\":\"\",\"pbcst_bannerImageDomain4\":\"\",\"pbcst_bannerImageDomain5\":\"\",\"pbcst_bannerImageDomain6\":\"\",\"pbcst_bannerImagePath1\":\"/product_images/uploaded_images/banner03.jpg\",\"pbcst_bannerImagePath2\":\"/product_images/uploaded_images/banner04.jpg\",\"pbcst_bannerImagePath3\":\"\",\"pbcst_bannerImagePath4\":\"\",\"pbcst_bannerImagePath5\":\"\",\"pbcst_bannerImagePath6\":\"\",\"pbcst_heading1\":\"For Ladies\",\"pbcst_heading2\":\"For Men\",\"pbcst_heading3\":\"\",\"pbcst_heading4\":\"\",\"pbcst_heading5\":\"\",\"pbcst_heading6\":\"\",\"pbcst_limit\":\"8\",\"pbcst_position1\":\"left\",\"pbcst_position2\":\"right\",\"pbcst_position3\":\"\",\"pbcst_position4\":\"\",\"pbcst_position5\":\"\",\"pbcst_position6\":\"\",\"pbcst_url1\":\"/shop-all/\",\"pbcst_url2\":\"/utility/\",\"pbcst_url3\":\"\",\"pbcst_url4\":\"\",\"pbcst_url5\":\"\",\"pbcst_url6\":\"\",\"pdp-non-sale-price-label\":\"\",\"pdp-price-label\":\"\",\"pdp-retail-price-label\":\"MSRP:\",\"pdp-sale-price-label\":\"\",\"price-fontSize\":\"14\",\"price-main-fontSize\":\"20\",\"price_ranges\":true,\"product_custom_badges\":true,\"product_list_columns\":3,\"product_list_display_mode\":\"grid\",\"product_outstock_badge\":true,\"product_sale_badges\":\"topleft\",\"product_size\":\"728x728\",\"productgallery_size\":\"532x532\",\"productpage-title-fontSize\":\"20\",\"productpage_addCart_mobile\":\"inline\",\"productpage_bulk_price_table\":false,\"productpage_custom_fields_hide_special\":true,\"productpage_custom_fields_tab\":false,\"productpage_custom_fields_tab_heading\":\"Specifications\",\"productpage_description_tab\":true,\"productpage_description_type\":\"right\",\"productpage_properties_tab\":false,\"productpage_related_products_count\":10,\"productpage_reviews_count\":10,\"productpage_reviews_tab\":false,\"productpage_similar_by_views_count\":10,\"productpage_tabs_type\":\"right\",\"productpage_thumbnails_count\":\"6\",\"productpage_thumbnails_slider\":true,\"productpage_vertical_thumbnails\":true,\"productpage_videos_count\":8,\"productpage_videos_type\":\"gallery\",\"products_featured_bg\":\"\",\"products_featured_columns\":4,\"products_featured_columns_sm\":2,\"products_featured_count\":8,\"products_featured_heading\":\"FEATURED PRODUCTS\",\"products_featured_subheading\":\"Featured on this week\",\"products_featured_type\":\"carousel\",\"products_new_bg\":\"\",\"products_new_columns\":4,\"products_new_columns_sm\":2,\"products_new_count\":4,\"products_new_heading\":\"NEW ARRIVALS\",\"products_new_subheading\":\"Discover the latest must-have products\",\"products_new_type\":\"grid\",\"products_per_page\":12,\"products_top_bg\":\"\",\"products_top_columns\":4,\"products_top_columns_sm\":2,\"products_top_count\":8,\"products_top_heading\":\"BEST SELLING\",\"products_top_subheading\":\"Bestselling in this week\",\"products_top_type\":\"carousel\",\"productthumb_size\":\"100x100\",\"productview_thumb_size\":\"50x50\",\"recentBlog_count\":0,\"recentBlog_heading\":\"OUR BLOG\",\"recentBlog_subheading\":\"The latest news and blogs\",\"recentBlog_type\":\"columns\",\"redirect_cart\":false,\"restrict_to_login\":false,\"searchpage_infiniteScroll\":true,\"section1\":\"home-banner1\",\"section10\":\"\",\"section2\":\"\",\"section3\":\"new-products\",\"section4\":\"\",\"section5\":\"\",\"section6\":\"\",\"section7\":\"\",\"section8\":\"\",\"section9\":\"\",\"select-arrow-color\":\"#757575\",\"select-bg-color\":\"#ffffff\",\"shop_by_price_visibility\":true,\"show_accept_amazon\":false,\"show_accept_amex\":false,\"show_accept_applepay\":false,\"show_accept_discover\":false,\"show_accept_googlepay\":true,\"show_accept_klarna\":true,\"show_accept_mastercard\":false,\"show_accept_paypal\":false,\"show_accept_visa\":false,\"show_copyright_footer\":true,\"show_powered_by\":false,\"show_product_dimensions\":false,\"show_product_quantity_box\":true,\"show_product_quick_view\":true,\"show_product_weight\":true,\"show_sidebar_brand_banner1\":false,\"show_sidebar_brand_banner2\":false,\"show_sidebar_category_banner1\":false,\"show_sidebar_category_banner2\":false,\"sidebar_new_products_count\":0,\"social_icon_placement_bottom\":\"bottom_right\",\"social_icon_placement_top\":true,\"spinner-borderColor-dark\":\"#999999\",\"spinner-borderColor-light\":\"#ffffff\",\"storeName-color\":\"#000000\",\"supported_card_type_icons\":[\"american_express\",\"diners\",\"discover\",\"mastercard\",\"visa\"],\"swatch_option_display_type\":\"default\",\"swatch_option_size\":\"64x64\",\"thumb_size\":\"100x100\",\"topBanner-bgColor\":\"#131313\",\"topBanner-color\":\"#ffffff\",\"topBanner-color-link\":\"#ffffff\",\"topHeader_show\":false,\"topHeader_show_address\":true,\"topHeader_show_banner\":false,\"topHeader_show_phone\":true,\"use_tweenmax\":false,\"use_wow\":false,\"zoom_size\":\"1280x1280\"},\"genericError\":\"Oops! Something went wrong.\",\"maintenanceMode\":[],\"urls\":{\"account\":{\"add_address\":\"/account.php?action=add_shipping_address\",\"addresses\":\"/account.php?action=address_book\",\"details\":\"/account.php?action=account_details\",\"inbox\":\"/account.php?action=inbox\",\"index\":\"/account.php\",\"orders\":{\"all\":\"/account.php?action=order_status\",\"completed\":\"/account.php?action=view_orders\",\"save_new_return\":\"/account.php?action=save_new_return\"},\"recent_items\":\"/account.php?action=recent_items\",\"returns\":\"/account.php?action=view_returns\",\"send_message\":\"/account.php?action=send_message\",\"update_action\":\"/account.php?action=update_account\",\"wishlists\":{\"add\":\"/wishlist.php?action=addwishlist\",\"all\":\"/wishlist.php\",\"delete\":\"/wishlist.php?action=deletewishlist\",\"edit\":\"/wishlist.php?action=editwishlist\"}},\"auth\":{\"check_login\":\"/login.php?action=check_login\",\"create_account\":\"/login.php?action=create_account\",\"forgot_password\":\"/login.php?action=reset_password\",\"login\":\"/login.php\",\"logout\":\"/login.php?action=logout\",\"save_new_account\":\"/login.php?action=save_new_account\",\"save_new_password\":\"/login.php?action=save_new_password\",\"send_password_email\":\"/login.php?action=send_password_email\"},\"brands\":\"https://www.djangoandjuliette.com.au/brands/\",\"cart\":\"/cart.php\",\"checkout\":{\"multiple_address\":\"/checkout.php?action=multiple\",\"single_address\":\"/checkout\"},\"compare\":\"/compare\",\"contact_us_submit\":\"/pages.php?action=sendContactForm\",\"gift_certificate\":{\"balance\":\"/giftcertificates.php?action=balance\",\"purchase\":\"/giftcertificates.php\",\"redeem\":\"/giftcertificates.php?action=redeem\"},\"home\":\"https://www.djangoandjuliette.com.au/\",\"product\":{\"post_review\":\"/postreview.php\"},\"rss\":{\"blog\":\"/rss.php?action=newblogs&type=rss\",\"blog_atom\":\"/rss.php?action=newblogs&type=atom\",\"products\":{\"featured\":\"/rss.php?action=featuredproducts&type=rss\",\"featured_atom\":\"/rss.php?action=featuredproducts&type=atom\",\"new\":\"/rss.php?type=rss\",\"new_atom\":\"/rss.php?type=atom\",\"popular\":\"/rss.php?action=popularproducts&type=rss\",\"popular_atom\":\"/rss.php?action=popularproducts&type=atom\",\"search\":\"/rss.php?action=searchproducts&type=rss\",\"search_atom\":\"/rss.php?action=searchproducts&type=atom\"}},\"search\":\"/search.php\",\"sitemap\":\"/sitemap.php\",\"subscribe\":{\"action\":\"/subscribe.php\"}},\"secureBaseUrl\":\"https://www.djangoandjuliette.com.au\",\"assetsUrl\":\"https://cdn11.bigcommerce.com/s-e4sunte/stencil/c8ff5bf0-91ac-0139-a02e-7e0cfece785b/\",\"pageType\":\"category\",\"cartId\":null,\"template\":\"pages/category\",\"loadingImg\":\"https://cdn11.bigcommerce.com/s-e4sunte/stencil/c8ff5bf0-91ac-0139-a02e-7e0cfece785b/img/loading.svg\",\"money\":{\"currency_location\":\"left\",\"currency_token\":\"$\",\"decimal_places\":2,\"decimal_token\":\".\",\"thousands_token\":\",\"},\"graphQLToken\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjaWQiOjEsImNvcnMiOlsiaHR0cHM6Ly93d3cuZGphbmdvYW5kanVsaWV0dGUuY29tLmF1Il0sImVhdCI6MTY2MDg1OTA1OSwiaWF0IjoxNjYwNjg2MjU5LCJpc3MiOiJCQyIsInNpZCI6NzM4Nzg3LCJzdWIiOiJiY2FwcC5saW5rZXJkIiwic3ViX3R5cGUiOjAsInRva2VuX3R5cGUiOjF9.5MMGOO_fWWcetVcsYYW4jmbOVYSiEeCcVcVNUEotGZ3Jlw3RTP8Rnmo3QV0V4x0pxJU5Z99wTMeWhc8u4w5EzA\",\"txtSelectOne\":\"Please select one\",\"useValidEmail\":\"Please use a valid email address, such as user@example.com.\",\"enterPass\":\"You must enter a password.\"}").load();
+            </script>
+
+        <script type="text/javascript" src="{% static 'csrf-protection-header-b572e5526f6854c73a5e080ef15a771f963740ae.js' %}"></script>
+    <script src="{% static 'eb0474b2d6f12402304413c3e.js' %}"></script>
+        <!-- snippet location footer -->
+    
+
+<div class="nanobar" style="position: fixed;"><div class="bar"></div></div><div class="modal-background" style=""></div></body></html>
